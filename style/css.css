@@ -1,0 +1,22 @@
+header{
+    width: 100%;
+    height: 30px;
+    background-color: blue;
+}
+
+.grilla{
+    display: flex;
+    background-color: grey;
+    height: 500px;
+}
+
+.card{
+    height: 200px;
+    width: 200px;
+    background-color: aqua;
+}
+.card img{
+    width: 200px;
+    height: 100px;
+
+}
