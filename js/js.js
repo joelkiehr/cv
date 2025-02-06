@@ -1,22 +1,15 @@
+document.addEventListener("DOMContentLoaded", function () {
+  // Selecciona el botón
+  const downloadBtn = document.getElementById("btn-cv");
 
-
-
-// Selecciona todos los elementos de proyecto con el efecto de desplazamiento
-const projects = document.querySelectorAll('.scroll-fade-up');
-
-// Función para verificar si el elemento está en la vista
-function toggleVisibility() {
-  projects.forEach(project => {
-    const rect = project.getBoundingClientRect();
-    // Verifica si el proyecto está visible en la ventana
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
-      project.classList.add('visible');
-    } else {
-      project.classList.remove('visible');
-    }
+  // Agrega el evento de clic
+  downloadBtn.addEventListener("click", function () {
+      const link = document.createElement("a");
+      link.href = "cv/CV Joel Kiehr.pdf"; // Ruta del PDF
+      link.download = "Cv Joel Kiehr.pdf"; // Nombre al descargar
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
   });
-}
+});
 
-// Ejecuta la función al cargar y cada vez que se haga scroll
-window.addEventListener('scroll', toggleVisibility);
-window.addEventListener('load', toggleVisibility);

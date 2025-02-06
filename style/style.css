@@ -1,370 +1,114 @@
-/* Estilos globales */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  html {
-    scroll-behavior: smooth;
-  }
+html {
+  height: 100vh;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  overflow: hidden;
+}
+body{
+  height: 80%;
+  font-family: monospace;
+  color:white;
+}
+
+.container {
+  display: flex; /* Hacemos que el contenedor sea flex */
+  gap: 16px; /* Espacio entre las cajas */
+  padding: 16px;
+  height: 100%; /* Para que ocupe toda la altura de la pantalla */
+}
+
+.me {
+  flex: 0.5; /* Caja más grande (2 partes de flex-grow) */
+  border: 2px solid #d3d3d3; /* Borde gris claro */
+  padding: 16px;
+  border-radius: 8px;
   
-  
-  body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-  }
-  
-  .container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
-  }
-  
-  p {
-    margin-bottom: 20px;
-    color: #666;
-  }
-  
-  /* Navbar */
-  nav {
-    background-color: #333;
-    padding: 10px 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-  }
-  
-  nav .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  nav .logo {
-    font-size: 1.8rem;
-    margin-left: 20px;
-  }
-  
-  nav ul {
-    list-style: none;
-    display: flex;
-    margin-right: auto;
-    margin-left: 40px;
-  }
-  
-  nav ul li {
-    margin: 0 15px;
-  }
-  
-  nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.2rem;
-    padding: 5px 10px;
-  }
-  
-  nav ul li a:hover {
-    color: #ffb703;
-  }
-  
-  
-  /* Showcase */
-  #showcase {
-    background: #525252 url('/images/background.jpg') no-repeat center center/cover;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-align: center;
-    padding-top: 70px;
-  }
-  
-  #showcase .container {
-    max-width: 700px;
-  }
-  
-  #showcase h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-  }
-  
-  #showcase .lead {
-    color: #cccbcb;
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-  }
-  
-  #showcase .btn {
-    display: inline-block;
-    padding: 10px 30px;
-    color: white;
-    background-color: #ffb703;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 1.2rem;
-    cursor: pointer;
-  }
-  
-  #showcase .btn:hover {
-    background-color: #e58903;
-  }
-  
-  /* Sección 'Sobre mí' */
-  #about {
-    padding: 50px 0;
-    background-color: white;
-  }
-  
-  #about h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  #about p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    text-align: center;
-  }
-  
-  /* Proyectos */
-  /* Sección de Proyectos */
-#projects {
-  padding: 50px 0;
-  background-color: #f9f9f9; /* Fondo clarito */
+}
+
+.section {
+  flex: 1; /* Ocupa menos espacio (1 parte de flex-grow) */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px; /* Espacio entre las cajas apiladas */
+}
+
+.article {
+  flex: 1; /* Las dos cajas ocupan espacio igual dentro del stack */
+  border: 2px solid #d3d3d3; /* Borde gris claro */
+  border-radius: 8px;
+  padding: 16px;
+
+
+}
+
+.article img{
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+h1, h2{
+  font-family: 'Orbitron';
+  color: white;
+}
+
+.me {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  color: white;
+  border-radius: 10px;
+}
+
+/* Sección superior */
+.top {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 2px solid grey;
+  padding-bottom: 10px;
+}
+
+.top img {
+  width: auto;
+  height: 280px;
+
+}
+
+.txt h1 {
+  margin-bottom: 10px;
+}
+
+/* Sección inferior */
+.bottom {
+  margin-top: 20px;
   text-align: center;
 }
 
-#projects h2 {
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-  color: #333;
+.icons {
+  margin-top: 10px;
 }
 
-/* Grid para las cards */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Cards flexibles */
-  gap: 20px; /* Espacio entre cards */
-  margin-top: 20px;
-  margin-bottom: 20px;
+.icons a img {
+  width: 30px;
+  margin: 0 10px;
+  transition: transform 0.3s ease;
 }
 
-/* Estilo de las cards */
-.project {
-  background-color: #fff; /* Fondo blanco */
-  border-radius: 10px; /* Bordes redondeados */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-  overflow: hidden; /* Evita que el contenido se desborde */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+.icons a img:hover {
+  transform: scale(1.2);
 }
 
-.project:hover {
-  transform: translateY(-10px); /* Eleva la card al pasar el mouse */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
-}
-
-/* Imagen dentro de la card */
-.project img {
-  width: 100%; /* Imagen ocupa todo el ancho */
-  height: 200px; /* Altura fija */
-  object-fit: cover; /* Recorta la imagen si es necesario */
-  border-bottom: 2px solid #ddd; /* Separador */
-}
-
-/* Título y descripción */
-.project h3 {
-  font-size: 1.5rem;
-  color: #333;
-  margin: 15px;
-}
-
-.project p {
-  font-size: 1rem;
-  color: #666;
-  margin: 0 15px 15px;
-}
-
-/* Botón dentro de la card (opcional) */
-.project .btn {
+.article .btn{
   display: inline-block;
-  margin: 10px auto 20px;
-  padding: 10px 20px;
-  background-color: #ffb703; /* Amarillo llamativo */
-  color: white;
-  text-decoration: none;
-  font-size: 1rem;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-.project .btn:hover {
-  background-color: #e58903; /* Color más oscuro al hover */
-}
-
-  
-  /* Sección 'Contacto' */
-  #contact {
-    padding: 50px 0;
-    background-color: white;
-  }
-  
-  #contact h2 {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 40px;
-  }
-  
-  #contact form {
-    max-width: 600px;
-    margin: auto;
-  }
-  
-  #contact input,
-  #contact textarea {
-    width: 100%;
-    padding: 15px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  #contact button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #ffb703;
-    border: none;
+    margin: 10px auto 20px;
+    padding: 10px 20px;
+    background-color: rgb(62, 62, 138);
     color: white;
-    font-size: 1.2rem;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  #contact button:hover {
-    background-color: #e58903;
-  }
-  
-  /* Footer */
-  footer {
-    padding: 20px;
-    background-color: #333;
-    color: white;
-    text-align: center;
-  }
-  
-  footer p {
-    margin: 10px 0;
-  }
-  
-  footer a {
-    color: white;
-    margin: 0 10px;
     text-decoration: none;
-    font-size: 1.5rem;
-  }
-  
-  footer a:hover {
-    color: #ffb703;
-  }
-  
-  /* Animación de desvanecimiento */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+    font-size: 1rem;
+    border-radius: 5px;
 }
-.animated-fade-in {
-  animation: fadeIn 2s ease-in-out;
-}
-
-/* Animación de deslizamiento */
-@keyframes slideIn {
-  from { transform: translateX(-100%); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
-}
-.animated-slide-in {
-  animation: slideIn 1s ease-out;
-}
-
-/* Animación de zoom */
-@keyframes zoomIn {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-.animated-zoom-in {
-  animation: zoomIn 1s ease-in;
-}
-
-/* Animación de rebote */
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-  40% { transform: translateY(-10px); }
-  60% { transform: translateY(-5px); }
-}
-.animated-bounce, .hover-bounce {
-  animation: bounce 1.5s ease infinite;
-}
-.hover-bounce:hover {
-  animation: bounce 0.5s ease infinite;
-}
-
-/* Animación de deslizamiento vertical */
-@keyframes slideUp {
-  from { transform: translateY(2px); opacity: 0; }
-  to { transform: translateY(200); opacity: 1; }
-}
-.animated-slide-up {
-  animation: slideUp 1s ease-out;
-}
-
-/* Animación de ampliación de fondo */
-@keyframes showcaseZoom {
-  from { background-size: 100%; }
-  to { background-size: 110%; }
-}
-.showcase-zoom-in {
-  animation: showcaseZoom 10s ease-in-out infinite alternate;
-}
-
-/* Animación de desvanecimiento en el footer */
-.footer-fade-in {
-  animation: fadeIn 3s ease-in;
-}
-/* Estilos iniciales y animación de subida */
-/* Estilos iniciales y animación de subida */
-.scroll-fade-up {
-  opacity: 0;
-  transform: translateY(200px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.scroll-fade-up.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-/* Sombra para los proyectos */
-.project {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
-  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Transición suave */
-}
-
-.project img{
-  width: 100%;
-  height: 400px;
- 
-}
-
-/* Sombra y efecto de aumento al pasar el ratón */
-.project:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra más intensa */
-  transform: translateY(-5px); /* Mueve el proyecto ligeramente hacia arriba */
-  }
-
